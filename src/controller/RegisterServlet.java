@@ -18,6 +18,7 @@ import model.User;
 import model.dao.GenderDao;
 import model.dao.ProductDao;
 import model.dao.UserDao;
+import util.HashPassword;
 import util.exceptions.UserDataException;
 
 @WebServlet("/register")
@@ -49,6 +50,10 @@ public class RegisterServlet extends HttpServlet {
 				throw new UserDataException("passwords missmatch");
 			}
 			//TODO the rest as well
+			
+			//hash the password
+			pass1= HashPassword.getInstance().hashPassword(pass1);
+			
 			//create user
 			User u = new User(email,firstName,lastName, pass1, gender, time,false);
 			//add to db

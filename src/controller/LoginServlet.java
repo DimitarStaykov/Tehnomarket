@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.User;
 import model.dao.UserDao;
+import util.HashPassword;
 
 @WebServlet("/login")
 public class LoginServlet extends HttpServlet {
@@ -27,7 +28,9 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		try {
-			User u = UserDao.getInstance().getUser(request.getParameter("email"), request.getParameter("pass"));
+			String pass = request.getParameter("password");
+			String hashpass = HashPassword.hashPassword(pass);
+			User u = UserDao.getInstance().getUser(request.getParameter("email"), hashpass);
 			if(u != null) {
 				request.getSession().setAttribute("user", u);
 				request.getRequestDispatcher("index.jsp").forward(request, response);
