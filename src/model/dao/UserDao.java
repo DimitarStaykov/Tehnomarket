@@ -1,4 +1,4 @@
-package model;
+package model.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import controller.DBManager;
+import model.User;
 
 public class UserDao {
 
@@ -46,7 +47,7 @@ public class UserDao {
 					result.getString("lastName"),
 					result.getString("password"),
 					result.getInt("gender"),
-					result.getTimestamp("dateOfBirth"),
+					result.getDate("dateOfBirth"),
 					result.getBoolean("isAdmin"));
 		}
 		else {

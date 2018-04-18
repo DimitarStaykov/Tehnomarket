@@ -1,5 +1,6 @@
 package model;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class User {
@@ -10,11 +11,11 @@ public class User {
 	private String lastName;
 	private String password;
 	private int gender;
-	private Timestamp dateOfBirth;
+	private Date dateOfBirth;
 	private boolean isAdmin;
 	
 	
-	public User(String email, String firstName, String lastName, String password, int gender, Timestamp dateOfBirth,
+	public User(String email, String firstName, String lastName, String password, int gender, Date dateOfBirth,
 			boolean isAdmin) {
 		super();
 		this.email = email;
@@ -26,7 +27,7 @@ public class User {
 		this.isAdmin = isAdmin;
 	}
 	
-	public User(int id, String email, String firstName, String lastName, String password, int gender, Timestamp dateOfBirth,
+	public User(int id, String email, String firstName, String lastName, String password, int gender, Date dateOfBirth,
 			boolean isAdmin) {
 		this(email,firstName,lastName,password,gender,dateOfBirth,isAdmin);
 		this.id = id;
@@ -68,7 +69,7 @@ public class User {
 	}
 
 
-	public Timestamp getDateOfBirth() {
+	public Date getDateOfBirth() {
 		return dateOfBirth;
 	}
 
