@@ -28,9 +28,13 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		try {
-			String pass = request.getParameter("password");
-			String hashpass = HashPassword.hashPassword(pass);
-			User u = UserDao.getInstance().getUser(request.getParameter("email"), hashpass);
+			String pass = request.getParameter("pass");
+			String email = request.getParameter("email"); 
+			String hashpass = UserDao.getInstance().getHashPass(email);
+			User u = null;
+			if(HashPassword.checkPassword(pass, hashpass)) {
+				u = UserDao.getInstance().getUser(email,hashpass);
+			}
 			if(u != null) {
 				request.getSession().setAttribute("user", u);
 				request.getRequestDispatcher("index.jsp").forward(request, response);
