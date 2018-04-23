@@ -27,7 +27,7 @@ public class User {
 		this.isAdmin = isAdmin;
 	}
 	
-	public User(int id, String email, String firstName, String lastName, String password, int gender, Date dateOfBirth,
+	public User(long id, String email, String firstName, String lastName, String password, int gender, Date dateOfBirth,
 			boolean isAdmin) {
 		this(email,firstName,lastName,password,gender,dateOfBirth,isAdmin);
 		this.id = id;

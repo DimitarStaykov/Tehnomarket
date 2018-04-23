@@ -25,7 +25,7 @@ public class UserDao {
 	}
 
 	public void saveUser(User u) throws SQLException {
-		String sql = "INSERT INTO users(email, firstName, lastName, password, Genders_id, dateOfBirth, isAdmin) VALUES (?, ?, ?, ?,?,?,?);";
+		String sql = "INSERT INTO users(email, first_name, last_name, password, genders_id, birth_date, is_admin) VALUES (?, ?, ?, ?,?,?,?)";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, u.getEmail());
 		ps.setString(2, u.getFirstName());
@@ -38,20 +38,20 @@ public class UserDao {
 	}
 
 	public User getUser(String email, String pass) throws SQLException {
-		String sql = "SELECT user_id, email, firstName, lastName, password, Genders_id, dateOfBirth, isAdmin FROM users WHERE email = ? AND password = ?";
+		String sql = "SELECT id, email, first_name, last_name, password, genders_id, birth_date, is_admin FROM users WHERE email = ? AND password = ?";
 		PreparedStatement ps = con.prepareStatement(sql);
 		ps.setString(1, email);
 		ps.setString(2, pass);
 		ResultSet result = ps.executeQuery();
 		if(result.next()) {
-			return new User(result.getInt("user_id"),
+			return new User(result.getInt("id"),
 					result.getString("email"),
-					result.getString("firstName"),
-					result.getString("lastName"),
+					result.getString("first_name"),
+					result.getString("last_name"),
 					result.getString("password"),
-					result.getInt("Genders_id"),
-					result.getDate("dateOfBirth"),
-					result.getBoolean("isAdmin"));
+					result.getInt("genders_id"),
+					result.getDate("birth_date"),
+					result.getBoolean("is_admin"));
 		}
 		else {
 			return null;

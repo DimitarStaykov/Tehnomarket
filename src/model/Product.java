@@ -1,73 +1,56 @@
 package model;
 
+import java.sql.Date;
+
 public class Product {
 
 	private long id;
-	private String productName;
+	private String name;
+	private String brand;
 	private float price;
-	private boolean isVisible;
-	private long discount;
-	
+	private int discount;
+	private Date discountEnd;
+	private String image;
 	private long categoryId;
-	
 	
 	//will do a builder here
 	
-	public Product() {}
 	
-	public Product setNewId(long id) {
-		this.id =id;
-		return this;
+	public Product(long id, String name, String brand, float price, int discount,Date discountEnd,String image,long categoryId) {
+		this.id = id;
+		this.name = name;
+		this.brand = brand;
+		this.price = price;
+		this.discount = discount;
+		this.discountEnd = discountEnd;
+		this.image = image;
+		this.categoryId = categoryId;
 	}
 	
-	public Product setNewProductName(String name) {
-		this.productName = name;
-		return this;
-	}
-	
-	public Product setNewPrice(long price) {
-		this.price =price;
-		return this;
-	}
-	
-	public Product setNewVisibility(boolean vis) {
-		this.isVisible =vis;
-		return this;
-	}
-	
-	public Product setNewDiscount(long discount) {
-		this.discount =discount;
-		return this;
-	}
-
 	public long getId() {
 		return id;
 	}
-
-	public void setId(long id) {
-		this.id = id;
+	public String getName() {
+		return name;
 	}
-
-	public String getProductName() {
-		return productName;
+	public String getBrand() {
+		return brand;
 	}
-
 	public float getPrice() {
 		return price;
 	}
-
-	public boolean isVisible() {
-		return isVisible;
-	}
-
-	public long getDiscount() {
+	public int getDiscount() {
 		return discount;
 	}
-
+	public Date getDiscountEnd() {
+		return discountEnd;
+	}
+	public String getImage() {
+		return image;
+	}
 	public long getCategoryId() {
 		return categoryId;
 	}
-	
 	
 	
 }
