@@ -50,6 +50,10 @@ public class LoginServlet extends HttpServlet {
 			System.out.println("Failed to connect to db");
 			request.setAttribute("error"," System error");
 			request.getRequestDispatcher("login.jsp").forward(request, response);
+		} catch(IllegalArgumentException e) {
+			System.out.println(e.getMessage());
+			request.setAttribute("error",e.getMessage());
+			request.getRequestDispatcher("login.jsp").forward(request, response);
 		}
 	}
 

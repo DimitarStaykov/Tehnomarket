@@ -30,7 +30,7 @@
 
 	<div class="search">
 		<form action="search" method="get">
-			<input type="text" requred> 
+			<input type="text" name="search" requred> 
 			<input type="submit" value="Search">
 
 		</form>
