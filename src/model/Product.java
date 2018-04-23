@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Product {
 
-	private long id;
+	private int id;
 	private String name;
 	private String brand;
 	private float price;
@@ -16,7 +16,7 @@ public class Product {
 	//will do a builder here
 	
 	
-	public Product(long id, String name, String brand, float price, int discount,Date discountEnd,String image,long categoryId) {
+	public Product(int id, String name, String brand, float price, int discount,Date discountEnd,String image,long categoryId) {
 		this.id = id;
 		this.name = name;
 		this.brand = brand;
@@ -27,7 +27,7 @@ public class Product {
 		this.categoryId = categoryId;
 	}
 	
-	public long getId() {
+	public int getId() {
 		return id;
 	}
 	public String getName() {
