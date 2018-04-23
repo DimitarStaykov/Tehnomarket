@@ -53,7 +53,9 @@
 		
 		<div align="right" style="font-size: 40px;">
 			Price:<%=product.getPrice() %><br>
-			<button>Add to Cart</button>
+			<form action="cart" method="get">
+				<button name ="basket" type="submit" value="<%= product.getId() %>">Add to Basket</button>
+			</form>
 		</div>
 	
 </body>
